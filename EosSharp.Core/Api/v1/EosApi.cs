@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace EosSharp.Core.Api.v1
 {
-
 	/// <summary>
     /// EosApi defines api methods to interface with a http handler
     /// </summary>

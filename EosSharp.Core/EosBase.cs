@@ -513,7 +513,7 @@ namespace EosSharp.Core
             return Api.GetTransaction(new GetTransactionRequest()
             {
                 id = transactionId,
-                block_num_hint = blockNumberHint
+                block_num_hint = blockNumberHint.ToString(),
             });
         }
 
