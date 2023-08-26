@@ -15,5 +15,7 @@ namespace EosSharp
             base(config, new HttpHandler())
         {
         }
+
+        
     }
 }

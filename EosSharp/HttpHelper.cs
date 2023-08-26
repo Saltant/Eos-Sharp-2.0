@@ -18,8 +18,16 @@ namespace EosSharp
     /// </summary>
     public class HttpHandler : IHttpHandler
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient client;
         private static Dictionary<string, object> ResponseCache { get; set; } = new Dictionary<string, object>();
+
+        static HttpHandler()
+        {
+            client = new HttpClient
+            {
+                Timeout = TimeSpan.FromSeconds(180)
+            };
+        }
 
         /// <summary>
         /// Clear cached responses from requests called with Post/GetWithCacheAsync

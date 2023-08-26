@@ -16,7 +16,7 @@ namespace EosSharp.Core
     public class EosBase
     {
         private EosConfigurator EosConfig { get; set; }
-        private EosApi Api { get; set; }
+        public EosApi Api { get; set; }
         private AbiSerializationProvider AbiSerializer { get; set; }
 
         /// <summary>

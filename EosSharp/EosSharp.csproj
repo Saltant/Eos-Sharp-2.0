@@ -2,28 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <Authors>Original: Mário Silva, Fork: Saltant)</Authors>
-    <Company>GetScatter</Company>
+    <Authors>Original: Mário Silva, Fork: Saltant</Authors>
+    <Company>Saltant</Company>
     <PackageTags>EOS, NetStandard, secp256k1, Blockchain</PackageTags>
     <Description>Eosio C# Library for blockchains (WAX, PROTON, TELOS, EOS, etc.). The library is based on https://github.com/EOSIO/eosjs and MIT licensed.</Description>
-	<PackageLicenseUrl>https://github.com/Saltant/Eos-Sharp-2.0/blob/master/LICENSE</PackageLicenseUrl>
+	<PackageLicense>https://github.com/Saltant/Eos-Sharp-2.0/blob/master/LICENSE</PackageLicense>
 	<PackageProjectUrl>https://github.com/Saltant/Eos-Sharp-2.0</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Saltant/Eos-Sharp-2.0</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Copyright>Copyright 2022</Copyright>
+    <Copyright>Copyright 2023</Copyright>
     <Product>eos-sharp 2.0</Product>
     <PackageId>eos-sharp-2.0</PackageId>
-    <AssemblyVersion>2.2.1.0</AssemblyVersion>
-    <FileVersion>2.2.1.0</FileVersion>
-    <Version>2.2.1</Version>
-    <PackageReleaseNotes>Fix BinaryFormatter (Replaced on Protobuf)</PackageReleaseNotes>
+    <AssemblyVersion>2.2.3.0</AssemblyVersion>
+    <FileVersion>2.2.3.0</FileVersion>
+    <Version>2.2.3</Version>
+    <PackageReleaseNotes>Add more Timeout for HttpClient</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\Eos-Sharp\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
 	<PackageReference Include="Cryptography.ECDSA.Secp256K1" Version="1.1.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	<PackageReference Include="protobuf-net" Version="3.1.17" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	<PackageReference Include="protobuf-net" Version="3.2.26" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,11 +50,13 @@
     <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
     <!-- include PDBs in the NuGet package -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <Title>Eos Sharp 2.0</Title>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
   
   <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
     <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
     </ItemGroup>
   </Target>
 
